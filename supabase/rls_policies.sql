@@ -67,9 +67,9 @@ CREATE POLICY "profiles_update_own"
 -- ────────────────────────────────────────────────
 ALTER TABLE doctors ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "doctors_select_authenticated"
+CREATE POLICY "doctors_select_public"
   ON doctors FOR SELECT
-  USING (auth.role() = 'authenticated');
+  USING (true);
 
 CREATE POLICY "doctors_insert_admin"
   ON doctors FOR INSERT
